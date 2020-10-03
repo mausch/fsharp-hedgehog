@@ -1,5 +1,6 @@
 ﻿namespace Hedgehog
 
+open System
 open Hedgehog.Numeric
 
 /// Tests are parameterized by the `Size` of the randomly-generated data,
@@ -85,6 +86,61 @@ module Range =
 
         constantFrom zero lo hi
 
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedInt8")>]
+    let __constantBoundedInt8 : Range<int8> = constantBounded()
+    
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedInt16")>]
+    let __constantBoundedInt16 : Range<Int16> = constantBounded()
+        
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedInt32")>]
+    let __constantBoundedInt32 : Range<Int32> = constantBounded()
+
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedInt64")>]
+    let __constantBoundedInt64 : Range<Int64> = constantBounded()
+
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedUInt8")>]
+    let __constantBoundedUInt8 : Range<uint8> = constantBounded()
+    
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedUInt16")>]
+    let __constantBoundedUInt16 : Range<UInt16> = constantBounded()
+
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedUInt32")>]
+    let __constantBoundedUInt32 : Range<UInt32> = constantBounded()
+
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedUInt64")>]
+    let __constantBoundedUInt64 : Range<UInt64> = constantBounded()
+    
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedFloat")>]
+    let __constantBoundedFloat : Range<float> = constantBounded()
+
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedDouble")>]
+    let __constantBoundedDouble : Range<double> = constantBounded()
+
+    /// Construct a range which is unaffected by the size parameter using the
+    /// full range of a data type.
+    [<CompiledName("ConstantBoundedDecimal")>]
+    let __constantBoundedDecimal : Range<decimal> = constantBounded()
+            
     //
     // Combinators - Linear
     //
@@ -148,6 +204,61 @@ module Range =
             let y_sized =
                 clamp x y (scaleLinear sz z y)
             x_sized, y_sized)
+        
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromInt8")>]
+    let __linearFromInt8(z,x,y) : Range<int8> = linearFrom z x y
+    
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromInt16")>]
+    let __linearFromInt16(z,x,y) : Range<Int16> = linearFrom z x y
+        
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromInt32")>]
+    let __linearFromInt32(z,x,y) : Range<Int32> = linearFrom z x y
+
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromInt64")>]
+    let __linearFromInt64(z,x,y) : Range<Int64> = linearFrom z x y
+
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromUInt8")>]
+    let __linearFromUInt8(z,x,y) : Range<uint8> = linearFrom z x y
+    
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromUInt16")>]
+    let __linearFromUInt16(z,x,y) : Range<UInt16> = linearFrom z x y
+
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromUInt32")>]
+    let __linearFromUInt32(z,x,y) : Range<UInt32> = linearFrom z x y
+
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromUInt64")>]
+    let __linearFromUInt64(z,x,y) : Range<UInt64> = linearFrom z x y
+    
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromFloat")>]
+    let __linearFromFloat(z,x,y) : Range<float> = linearFrom z x y
+
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromDouble")>]
+    let __linearFromDouble(z,x,y) : Range<double> = linearFrom z x y
+
+    /// Construct a range which scales the bounds relative to the size
+    /// parameter.
+    [<CompiledName("LinearFromDecimal")>]
+    let __linearFromDecimal(z,x,y) : Range<decimal> = linearFrom z x y
 
     /// Construct a range which scales the second bound relative to the size
     /// parameter.
@@ -155,6 +266,62 @@ module Range =
     let inline linear (x : 'a) (y : 'a) : Range<'a> =
       linearFrom x x y
 
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearInt8")>]
+    let __linearInt8(x,y) : Range<int8> = linear x y
+    
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearInt16")>]
+    let __linearInt16(x,y) : Range<Int16> = linear x y
+        
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearInt32")>]
+    let __linearInt32(x,y) : Range<Int32> = linear x y
+
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearInt64")>]
+    let __linearInt64(x,y) : Range<Int64> = linear x y
+
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearUInt8")>]
+    let __linearUInt8(x,y) : Range<uint8> = linear x y
+    
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearUInt16")>]
+    let __linearUInt16(x,y) : Range<UInt16> = linear x y
+
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearUInt32")>]
+    let __linearUInt32(x,y) : Range<UInt32> = linear x y
+
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearUInt64")>]
+    let __linearUInt64(x,y) : Range<UInt64> = linear x y
+    
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearFloat")>]
+    let __linearFloat(x,y) : Range<float> = linear x y
+
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearDouble")>]
+    let __linearDouble(z,x,y) : Range<double> = linear x y
+
+    /// Construct a range which scales the second bound relative to the size
+    /// parameter.
+    [<CompiledName("LinearDecimal")>]
+    let __linearDecimal(z,x,y) : Range<decimal> = linear x y
+
+        
     /// Construct a range which is scaled relative to the size parameter and
     /// uses the full range of a data type.
     [<CompiledName("-LinearBounded")>]
